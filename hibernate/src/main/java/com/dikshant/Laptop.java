@@ -13,17 +13,6 @@ public class Laptop {
     private String model;
     private int ram;
 
-    @ManyToMany(mappedBy = "laptops")
-    private List<Progammers> progammers;
-
-
-    public List<Progammers> getProgammers() {
-        return progammers;
-    }
-
-    public void setProgammers(List<Progammers> progammers) {
-        this.progammers = progammers;
-    }
 
     public int getLaptopId() {
         return LaptopId;

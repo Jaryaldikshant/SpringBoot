@@ -71,22 +71,14 @@ public class Main {
 
         Progammers p2 = new Progammers();
         p2.setpId(102);
-        p2.setpName("John");
-        p2.setTech("Chemical");
-
-        Progammers p3 = new Progammers();
-        p3.setpId(103);
-        p3.setpName("Rishu");
-        p3.setTech("Electric");
+        p2.setpName("Rishu");
+        p2.setTech("Electric");
 
 
         p1.setLaptops(List.of(l1,l2));
-        p2.setLaptops(List.of(l2,l3));
-        p3.setLaptops(List.of(l1,l2,l3));
+        p2.setLaptops(List.of(l3));
 
-        l1.setProgammers(List.of(p1,p3));
-        l2.setProgammers(List.of(p2,p3));
-        l3.setProgammers(List.of(p3,p2));
+
 
 
         SessionFactory sf = new Configuration()
@@ -104,15 +96,18 @@ public class Main {
 
         session.persist(p1);
         session.persist(p2);
-        session.persist(p3);
 
         transaction.commit();
 
 
-      Progammers p5 = session.get(Progammers.class,102);
-      System.out.println(p5);
-
       session.close();
+
+      Session session1 = sf.openSession();
+
+      Progammers p5 = session1.get(Progammers.class,102);
+//      System.out.println(p5);
+
+      session1.close();
       sf.close();
 
 
