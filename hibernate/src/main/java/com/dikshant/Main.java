@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -44,23 +46,49 @@ public class Main {
 //
 //        System.out.println(student1);
 
+        Laptop l1 = new Laptop();
+        l1.setLaptopId(1);
+        l1.setBrand("Asus");
+        l1.setModel("Rog");
+        l1.setRam(16);
+
+        Laptop l2 = new Laptop();
+        l2.setLaptopId(2);
+        l2.setBrand("HP");
+        l2.setModel("14s");
+        l2.setRam(8);
+
 
         Progammers p1 = new Progammers();
         p1.setpId(101);
         p1.setpName("Max");
         p1.setTech("Mechanical");
+        p1.setLaptops(List.of(l1,l2));
+
+        l1.setProgammers(p1);
+        l2.setProgammers(p1);
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(Progammers.class)
+                .addAnnotatedClass(Laptop.class)
                 .configure()
                 .buildSessionFactory();
 
         Session session = sf.openSession();
         Transaction transaction = session.beginTransaction();
 
+        session.persist(l1);
+        session.persist(l2);
         session.persist(p1);
 
         transaction.commit();
+
+
+      Progammers p2 = session.get(Progammers.class,101);
+      System.out.println(p2);
+
+        session.close();
+        sf.close();
 
 
 

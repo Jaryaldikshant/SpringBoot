@@ -1,24 +1,30 @@
 package com.dikshant;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
-import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "Emp_Table")
+//@Table(name = "Emp_Table")
 public class Progammers {
 
     @Id
-    @Column(name = "Emp_Id")
+//    @Column(name = "Emp_Id")
     private int pId;
 
-    @Column(name = "Employe_Name")
+//    @Column(name = "Employe_Name")
     private String pName;
 
-
     // this column will not store in db if we use @Transient
-    @Transient
-    @Column(name = "Tech_Stack")
+//    @Transient
+//    @Column(name = "Tech_Stack")
     private String tech;
+
+    @OneToMany(mappedBy = "progammers")
+    private List<Laptop> laptops;
+
 
     public int getpId() {
         return pId;
@@ -44,12 +50,21 @@ public class Progammers {
         this.tech = tech;
     }
 
+    public List<Laptop> getLaptops() {
+        return laptops;
+    }
+
+    public void setLaptops(List<Laptop> laptops) {
+        this.laptops = laptops;
+    }
+
     @Override
     public String toString() {
         return "Progammers{" +
                 "pId=" + pId +
                 ", pName='" + pName + '\'' +
                 ", tech='" + tech + '\'' +
+                ", laptop=" + laptops +
                 '}';
     }
 }
