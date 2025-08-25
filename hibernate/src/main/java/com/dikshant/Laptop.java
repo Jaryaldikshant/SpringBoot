@@ -2,6 +2,8 @@ package com.dikshant;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Laptop {
 
@@ -11,15 +13,15 @@ public class Laptop {
     private String model;
     private int ram;
 
-    @ManyToOne
-    private Progammers progammers;
+    @ManyToMany(mappedBy = "laptops")
+    private List<Progammers> progammers;
 
 
-    public Progammers getProgammers() {
+    public List<Progammers> getProgammers() {
         return progammers;
     }
 
-    public void setProgammers(Progammers progammers) {
+    public void setProgammers(List<Progammers> progammers) {
         this.progammers = progammers;
     }
 
@@ -62,7 +64,6 @@ public class Laptop {
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
-                ", progammers=" + progammers +
                 '}';
     }
 }

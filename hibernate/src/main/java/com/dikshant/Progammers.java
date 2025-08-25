@@ -2,6 +2,7 @@ package com.dikshant;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class Progammers {
 //    @Column(name = "Tech_Stack")
     private String tech;
 
-    @OneToMany(mappedBy = "progammers")
+    @ManyToMany
     private List<Laptop> laptops;
 
 
@@ -64,7 +65,7 @@ public class Progammers {
                 "pId=" + pId +
                 ", pName='" + pName + '\'' +
                 ", tech='" + tech + '\'' +
-                ", laptop=" + laptops +
+                ", laptops=" + laptops +
                 '}';
     }
 }

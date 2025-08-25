@@ -58,15 +58,36 @@ public class Main {
         l2.setModel("14s");
         l2.setRam(8);
 
+        Laptop l3 = new Laptop();
+        l3.setLaptopId(3);
+        l3.setBrand("Lenovo");
+        l3.setModel("Yoga");
+        l3.setRam(10);
 
         Progammers p1 = new Progammers();
         p1.setpId(101);
         p1.setpName("Max");
         p1.setTech("Mechanical");
-        p1.setLaptops(List.of(l1,l2));
 
-        l1.setProgammers(p1);
-        l2.setProgammers(p1);
+        Progammers p2 = new Progammers();
+        p2.setpId(102);
+        p2.setpName("John");
+        p2.setTech("Chemical");
+
+        Progammers p3 = new Progammers();
+        p3.setpId(103);
+        p3.setpName("Rishu");
+        p3.setTech("Electric");
+
+
+        p1.setLaptops(List.of(l1,l2));
+        p2.setLaptops(List.of(l2,l3));
+        p3.setLaptops(List.of(l1,l2,l3));
+
+        l1.setProgammers(List.of(p1,p3));
+        l2.setProgammers(List.of(p2,p3));
+        l3.setProgammers(List.of(p3,p2));
+
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(Progammers.class)
@@ -79,16 +100,20 @@ public class Main {
 
         session.persist(l1);
         session.persist(l2);
+        session.persist(l3);
+
         session.persist(p1);
+        session.persist(p2);
+        session.persist(p3);
 
         transaction.commit();
 
 
-      Progammers p2 = session.get(Progammers.class,101);
-      System.out.println(p2);
+      Progammers p5 = session.get(Progammers.class,102);
+      System.out.println(p5);
 
-        session.close();
-        sf.close();
+      session.close();
+      sf.close();
 
 
 
