@@ -83,45 +83,62 @@ public class Main {
 
 
 
+//        SessionFactory sf = new Configuration()
+////                .addAnnotatedClass(Progammers.class)
+//                .addAnnotatedClass(Laptop.class)
+//                .configure()
+//                .buildSessionFactory();
+//
+//        Session session = sf.openSession();
+////        Transaction transaction = session.beginTransaction();
+////        session.persist(l1);
+//
+////        session.persist(l2);
+////        session.persist(l3);
+////        session.persist(p1);
+////        session.persist(p2);
+////        transaction.commit();
+
+//
+//        // select * from laptop where ram=32   ---> Sql
+//        // from Laptop where ram=32 ----> Hql
+//
+//        String brand = "Asus";
+//
+//        Query query = session.createQuery("select brand,model from Laptop where brand like ?1");
+//        query.setParameter(1,brand);
+//
+//          List<Object[]> laptops = query.getResultList();
+//
+//          for(Object[] data: laptops){
+//              System.out.println((String) data[0] + " " +(String) data[1]);
+//          }
+//
+////        Laptop l1 = session.get(Laptop.class,3);
+//        System.out.println(laptops);
+//
+//        session.close();
+//
+//        sf.close();
+
+
         SessionFactory sf = new Configuration()
-//                .addAnnotatedClass(Progammers.class)
                 .addAnnotatedClass(Laptop.class)
                 .configure()
                 .buildSessionFactory();
 
         Session session = sf.openSession();
-//        Transaction transaction = session.beginTransaction();
-//        session.persist(l1);
 
-//        session.persist(l2);
-//        session.persist(l3);
-//        session.persist(p1);
-//        session.persist(p2);
-//        transaction.commit();
-
-
-        // select * from laptop where ram=32   ---> Sql
-        // from Laptop where ram=32 ----> Hql
-
-        String brand = "Asus";
-
-        Query query = session.createQuery("select brand,model from Laptop where brand like ?1");
-        query.setParameter(1,brand);
-
-          List<Object[]> laptops = query.getResultList();
-
-          for(Object[] data: laptops){
-              System.out.println((String) data[0] + " " +(String) data[1]);
-          }
-
-//        Laptop l1 = session.get(Laptop.class,3);
-        System.out.println(laptops);
-
+        Laptop l1 = session.get(Laptop.class,2);
+        System.out.println(l1);
         session.close();
 
+        Session session1 = sf.openSession();
+        Laptop l2 = session1.get(Laptop.class,2);
+        System.out.println(l2);
+        session1.close();
+
         sf.close();
-
-
 
     }
 }
