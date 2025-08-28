@@ -7,6 +7,30 @@
 
     <!-- bean definitions here -->
 
-<bean id = "programmers" class="com.dikshant.Programmers"></bean>
+<!-- Here we are calling setter method to assign its value -->
+    <bean id = "programmers" class="com.dikshant.Programmers" autowire="byName">
+        <property name="age" value="21"/>
+        <property name="com">
+
+<!-- using inner bean -->
+            <bean id = "com1" class="com.dikshant.Laptop" primary="true">
+            </bean>
+        </property>
+
+<!--        <constructor-arg type="com.dikshant.Laptop" ref="lap1"/>-->
+<!--        <constructor-arg value="21"/>-->
+
+<!--        <constructor-arg index="1" ref="lap1"/>-->
+<!--        <constructor-arg index="0" value="21"/>-->
+
+<!--        <constructor-arg name="lap" ref="lap1"/>-->
+<!--        <constructor-arg name="age" value="21"/>-->
+
+    </bean>
+
+<!--    <bean id = "com1" class="com.dikshant.Laptop" primary="true"></bean>-->
+<!--    <bean id = "com2" class="com.dikshant.Desktop" lazy-init="true"></bean>-->
+
+
 
 </beans>
