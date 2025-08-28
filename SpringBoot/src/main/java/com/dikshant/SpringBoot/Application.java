@@ -12,8 +12,9 @@ public class Application {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(Application.class, args);
 
-		Programmers programmers = context.getBean(Programmers.class);
-		programmers.code();
+		Programmers obj = context.getBean(Programmers.class);
+		System.out.println(obj.getAge());
+		obj.code();
 
 
 	}

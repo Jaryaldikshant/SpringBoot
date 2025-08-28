@@ -1,11 +1,13 @@
 package com.dikshant.SpringBoot;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Laptop {
+@Primary
+public class Laptop implements Computer {
 
     public void compile(){
-        System.out.print("Compiling -----");
+        System.out.print("Compiling through Laptop");
     }
 }
