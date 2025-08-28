@@ -1,4 +1,4 @@
-package com.dikshant.SpringBoot;
+package com.dikshant.SpringBoot.model;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;

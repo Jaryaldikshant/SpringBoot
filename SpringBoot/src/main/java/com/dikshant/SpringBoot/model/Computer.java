@@ -1,4 +1,4 @@
-package com.dikshant.SpringBoot;
+package com.dikshant.SpringBoot.model;
 
 public interface Computer {
 

@@ -1,6 +1,5 @@
-package com.dikshant.SpringBoot;
+package com.dikshant.SpringBoot.model;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
