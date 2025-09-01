@@ -8,7 +8,7 @@
     <div class="container">
         <h2>Welcome !! </h2>
             <div class="result">
-                <p><b> ${programmer} </b></p>
+                <p><b> ${programmer1} </b></p>
             </div>
 
 
