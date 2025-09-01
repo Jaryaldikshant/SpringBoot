@@ -1,14 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<html>
+
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Calculation Result</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Welcome !! </h2>
+        <h2>!!!!</h2>
             <div class="result">
-                <p><b> ${programmer} </b></p>
+                <p th:text="${programmer}"><b> ${programmer} </b></p>
+
+                <h4 th:text="'Welcome to the ' + ${course} + ' World'"> Greetings</h4>
             </div>
 
 

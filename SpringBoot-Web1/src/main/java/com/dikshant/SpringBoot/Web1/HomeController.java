@@ -13,6 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
+    @ModelAttribute("course")
+    public String courseName(){
+        return "DevOps";
+    }
+
     @RequestMapping("/")
     public String home(){
         System.out.println("Home method called");
