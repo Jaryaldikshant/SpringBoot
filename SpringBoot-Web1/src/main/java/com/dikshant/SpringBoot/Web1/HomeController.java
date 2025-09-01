@@ -32,7 +32,7 @@ public class HomeController {
 //    }
 
     @RequestMapping("addProgrammer")
-    public String addProgrammer(@ModelAttribute("programmer1") Programmer programmer){
+    public String addProgrammer(Programmer programmer){
 
 //        Programmer programmer = new Programmer();
 //
